@@ -1,11 +1,12 @@
 import React from "react";
+//redux
 import { useDispatch } from "react-redux";
 import { loadSubreddit } from "../actions/subredditAction";
 
-const SubredditList = () => {
+const SubredditList = ({ category, displayName, imageSrc }) => {
   return (
     <div className="subredditList">
-      <h3>Subreddits</h3>
+      <h3>{category}</h3>
     </div>
   );
 };

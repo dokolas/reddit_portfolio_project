@@ -7,13 +7,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadSubreddit } from "./actions/subredditAction";
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(loadSubreddit());
-  });
-
-  return <div className="App">{/* <Home /> */}</div>;
+  return (
+    <div className="App">
+      <Home />
+    </div>
+  );
 }
 
 export default App;

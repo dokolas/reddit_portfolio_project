@@ -1,6 +1,6 @@
 //setting initial state
 const initState = {
-  subreddit: [],
+  categories: [],
 };
 
 const subredditReducer = (state = initState, action) => {
@@ -8,7 +8,7 @@ const subredditReducer = (state = initState, action) => {
     case "FETCH_SUBREDDIT":
       return {
         ...state,
-        subreddit: action.payload.subreddit,
+        categories: action.payload.subreddit,
       };
     default:
       return { ...state };
