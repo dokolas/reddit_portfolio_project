@@ -8,6 +8,7 @@ const SubredditList = ({ category, displayName, imageSrc }) => {
 
   const loadChosenPostsHandler = () => {
     dispatch(loadChosenPosts(category));
+    dispatch({ type: "CLEAR_INITIAL_POSTS" }); //CLEARS INITIAL POSTS
   };
 
   return (

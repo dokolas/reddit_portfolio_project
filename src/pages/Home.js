@@ -25,20 +25,36 @@ export const Home = () => {
 
   return (
     <div>
-      <h1>Initial Posts</h1>
-      {chosenPosts.map((post) => (
-        <Posts title={post.data.title} />
-      ))}
-      <h1>Posts</h1>
-      {initialposts.map((post) => (
-        <Posts
-          title={post.data.title}
-          ups={post.data.ups}
-          thumb={post.data.thumbnail}
-          key={post.data.id}
-        />
-      ))}
-
+      {chosenPosts.length ? (
+        <div className="chosenPosts">
+          <h1>Chosen Posts</h1>
+          {chosenPosts.map((post) => (
+            <Posts
+              title={post.data.title}
+              ups={post.data.ups}
+              thumb={post.data.thumbnail}
+              key={post.data.id}
+            />
+          ))}
+        </div>
+      ) : (
+        "" //this line item renders the '' with ? on line 40.  so if the length is 0, render ''
+      )}
+      {initialposts.length ? (
+        <div className="initialpost">
+          <h1>Posts</h1>
+          {initialposts.map((post) => (
+            <Posts
+              title={post.data.title}
+              ups={post.data.ups}
+              thumb={post.data.thumbnail}
+              key={post.data.id}
+            />
+          ))}
+        </div>
+      ) : (
+        "" //this line item renders the '' with ? on line 40.  so if the length is 0, render ''
+      )}
       <h1>Subreddit Categories</h1>
       <div className="category-list">
         {categories.map((category) => (

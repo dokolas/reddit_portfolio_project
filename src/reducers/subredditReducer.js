@@ -12,6 +12,11 @@ const subredditReducer = (state = initState, action) => {
         categories: action.payload.subreddit,
         initialposts: action.payload.initialposts,
       };
+    case "CLEAR_INITIAL_POSTS":
+      return {
+        ...state,
+        initialposts: [], //this clears it all
+      };
     default:
       return { ...state };
   }
