@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadSubreddit } from "../actions/subredditAction";
 //components
 import SubredditList from "../components/subredditList";
-import Posts from "../components/posts";
+import Posts from "../components/initialPosts";
+import SpecificPosts from "../components/chosenPosts";
 //styles and motion
 import styled from "styled-components";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
@@ -23,6 +24,8 @@ export const Home = () => {
 
   return (
     <div>
+      <h1>Initial Posts</h1>
+      <SpecificPosts />
       <h1>Posts</h1>
       {posts.map((post) => (
         <Posts

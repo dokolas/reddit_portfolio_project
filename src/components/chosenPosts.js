@@ -3,15 +3,13 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { loadSubreddit } from "../actions/subredditAction";
 
-const Posts = ({ title, ups, thumb }) => {
+const SpecificPosts = () => {
   return (
     <div className="subredditList">
-      <h3>
-        {ups} - {title}
-      </h3>
+      <h3>This is my post title</h3>
       <p>First lines of post</p>
     </div>
   );
 };
 
-export default Posts;
+export default SpecificPosts;
