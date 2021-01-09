@@ -3,12 +3,15 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { loadSubreddit } from "../actions/subredditAction";
 
-const SubredditList = ({ category, displayName, imageSrc }) => {
+const Posts = ({ title, ups, thumb }) => {
   return (
     <div className="subredditList">
-      <p>{category}</p>
+      <h3>
+        {ups} - {title}
+      </h3>
+      <p>First lines of post</p>
     </div>
   );
 };
 
-export default SubredditList;
+export default Posts;
