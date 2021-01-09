@@ -6,9 +6,7 @@ import { loadSubreddit } from "../actions/subredditAction";
 const Posts = ({ title, ups }) => {
   return (
     <div className="subredditList">
-      <h3>
-        {ups} - {title}
-      </h3>
+      <h3>{title}</h3>
       <p>First comment of post</p>
     </div>
   );

@@ -1,15 +1,11 @@
 import React from "react";
 //redux
-import { useDispatch } from "react-redux";
-import { loadSubreddit } from "../actions/subredditAction";
+import { useSelector } from "react-redux";
+import { loadChosenPosts } from "../actions/chosenPostsAction";
+import { Posts } from "../components/initialPosts";
 
 const SpecificPosts = () => {
-  return (
-    <div className="subredditList">
-      <h3>This is my post title</h3>
-      <p>First lines of post</p>
-    </div>
-  );
+  return <div>Hello</div>;
 };
 
 export default SpecificPosts;

@@ -20,14 +20,17 @@ export const Home = () => {
   }, [dispatch]);
 
   //GET THE DATA BACK FROM THE ABOVE FETCH/STATE
-  const { categories, posts } = useSelector((state) => state.subreddit);
+  const { categories, initialposts } = useSelector((state) => state.subreddit);
+  const { chosenPosts } = useSelector((state) => state.chosenPosts);
 
   return (
     <div>
       <h1>Initial Posts</h1>
-      <SpecificPosts />
+      {chosenPosts.map((post) => (
+        <Posts title={post.data.title} />
+      ))}
       <h1>Posts</h1>
-      {posts.map((post) => (
+      {initialposts.map((post) => (
         <Posts
           title={post.data.title}
           ups={post.data.ups}

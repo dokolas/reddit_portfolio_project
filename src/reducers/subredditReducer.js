@@ -1,16 +1,16 @@
 //setting initial state
 const initState = {
   categories: [],
-  posts: [],
+  initialposts: [],
 };
 
 const subredditReducer = (state = initState, action) => {
   switch (action.type) {
-    case "FETCH_DATA":
+    case "FETCH_INITIAL_DATA":
       return {
         ...state,
         categories: action.payload.subreddit,
-        posts: action.payload.posts,
+        initialposts: action.payload.initialposts,
       };
     default:
       return { ...state };
