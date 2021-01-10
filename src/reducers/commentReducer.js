@@ -2,6 +2,7 @@
 
 const initialState = {
   commentPosts: [],
+  mainPost: [],
 }; //need empty arrays to not cause .map errors
 
 const commentReducer = (state = initialState, action) => {
@@ -10,11 +11,13 @@ const commentReducer = (state = initialState, action) => {
       return {
         ...state,
         commentPosts: action.payload.commentPosts,
+        mainPost: action.payload.mainPost,
       };
     case "CLEAR_COMMENTS":
       return {
         ...state,
         commentPosts: [], //this clears it all
+        mainPost: [],
       };
     default:
       return { ...state };

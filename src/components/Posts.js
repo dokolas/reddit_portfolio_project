@@ -16,9 +16,6 @@ const Posts = ({ title, ups, id, subreddit }) => {
   return (
     <div className="subredditList">
       <h3 onClick={loadCommentPostsHandler}>{title}</h3>
-      {commentPosts.map((comment) => (
-        <Comments body={comment.data.body} />
-      ))}
     </div>
   );
 };
