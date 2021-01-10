@@ -3,13 +3,12 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { loadSubreddit } from "../actions/subredditAction";
 
-const Posts = ({ title, ups }) => {
+const Comments = ({ body }) => {
   return (
     <div className="subredditList">
-      <h3>{title}</h3>
-      <p>First comment of post</p>
+      <h3>{body}</h3>
     </div>
   );
 };
 
-export default Posts;
+export default Comments;

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadSubreddit } from "../actions/subredditAction";
 //components
 import SubredditList from "../components/subredditList";
-import Posts from "../components/initialPosts";
+import Posts from "../components/Posts";
 import SpecificPosts from "../components/chosenPosts";
 //styles and motion
 import styled from "styled-components";
@@ -23,8 +23,13 @@ export const Home = () => {
   const { categories, initialposts } = useSelector((state) => state.subreddit);
   const { chosenPosts } = useSelector((state) => state.chosenPosts);
 
+  const clearCommentsHandler = () => {
+    dispatch({ type: "CLEAR_COMMENTS" }); //CLEARS INITIAL POSTS
+  };
+
   return (
     <div>
+      <h1 onClick={clearCommentsHandler}>Clear Comments!</h1>
       {chosenPosts.length ? (
         <div className="chosenPosts">
           <h1>Chosen Posts</h1>
@@ -34,6 +39,8 @@ export const Home = () => {
               ups={post.data.ups}
               thumb={post.data.thumbnail}
               key={post.data.id}
+              id={post.data.id}
+              subreddit={post.data.subreddit}
             />
           ))}
         </div>
@@ -49,6 +56,8 @@ export const Home = () => {
               ups={post.data.ups}
               thumb={post.data.thumbnail}
               key={post.data.id}
+              id={post.data.id}
+              subreddit={post.data.subreddit}
             />
           ))}
         </div>

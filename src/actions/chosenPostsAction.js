@@ -1,5 +1,5 @@
 import axios from "axios";
-import { chosenPostsUrl } from "../api";
+import { chosenPostsUrl, commentPostUrl } from "../api";
 
 export const loadChosenPosts = (option) => async (dispatch) => {
   const chosenData = await axios.get(chosenPostsUrl(option));
@@ -7,6 +7,16 @@ export const loadChosenPosts = (option) => async (dispatch) => {
     type: "FETCH_DATA_SPECIFIC_OPTION",
     payload: {
       chosenPosts: chosenData.data.data.children,
+    },
+  });
+};
+
+export const commentChosenPosts = (category, id) => async (dispatch) => {
+  const commentData = await axios.get(commentPostUrl(category, id));
+  dispatch({
+    type: "FETCH_DATA_COMMENTS",
+    payload: {
+      commentPosts: commentData.data.data,
     },
   });
 };
