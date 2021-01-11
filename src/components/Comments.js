@@ -7,10 +7,15 @@ import { motion } from "framer-motion";
 
 const Comments = () => {
   const { commentPosts, mainPost } = useSelector((state) => state.comments);
+  const dispatch = useDispatch();
+  const clearCommentsHandler = () => {
+    dispatch({ type: "CLEAR_COMMENTS" }); //CLEARS INITIAL POSTS
+  };
 
   return (
     <CommentBox>
       <Detail>
+        <h1 onClick={clearCommentsHandler}>Clear Comments!</h1>
         <h1>Main Title: {mainPost.title}</h1>
         {commentPosts.map((comment) => (
           <div>

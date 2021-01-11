@@ -25,13 +25,8 @@ export const Home = () => {
   const { chosenPosts } = useSelector((state) => state.chosenPosts);
   const { commentPosts, mainPost } = useSelector((state) => state.comments);
 
-  const clearCommentsHandler = () => {
-    dispatch({ type: "CLEAR_COMMENTS" }); //CLEARS INITIAL POSTS
-  };
-
   return (
     <MainContainer>
-      <h1 onClick={clearCommentsHandler}>Clear Comments!</h1>
       <CategoryList>
         <h1>Subreddit Categories</h1>
         {categories.map((category) => (
