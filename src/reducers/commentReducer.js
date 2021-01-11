@@ -2,7 +2,7 @@
 
 const initialState = {
   commentPosts: [],
-  mainPost: [],
+  mainPost: { title: [] },
 }; //need empty arrays to not cause .map errors
 
 const commentReducer = (state = initialState, action) => {

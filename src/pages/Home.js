@@ -30,21 +30,34 @@ export const Home = () => {
   };
 
   return (
-    <div>
+    <MainContainer>
       <h1 onClick={clearCommentsHandler}>Clear Comments!</h1>
-      {mainPost.map((main) => (
-        <div>
+      <CategoryList>
+        <h1>Subreddit Categories</h1>
+        {categories.map((category) => (
+          <SubredditList
+            category={category.data.display_name_prefixed}
+            key={category.data.id}
+          />
+        ))}
+      </CategoryList>
+      {commentPosts.length ? (
+        <Comments />
+      ) : (
+        "" //this line item renders the '' with ? on line 40.  so if the length is 0, render ''
+      )}
+      {/* {mainPost.map((main) => (
+        <CommentsList>
           <p>Main Title: {main.data.title}</p>
           {commentPosts.map((comment) => (
             <div>
               <Comments body={comment.data.body} />
             </div>
           ))}
-        </div>
-      ))}
+        </CommentsList>
+      ))} */}
       {chosenPosts.length ? (
-        <div className="chosenPosts">
-          <h1>Chosen Posts</h1>
+        <PostList>
           {chosenPosts.map((post) => (
             <div>
               <Posts
@@ -57,13 +70,12 @@ export const Home = () => {
               />
             </div>
           ))}
-        </div>
+        </PostList>
       ) : (
         "" //this line item renders the '' with ? on line 40.  so if the length is 0, render ''
       )}
       {initialposts.length ? (
-        <div className="initialpost">
-          <h1>Posts</h1>
+        <PostList>
           {initialposts.map((post) => (
             <Posts
               title={post.data.title}
@@ -74,19 +86,30 @@ export const Home = () => {
               subreddit={post.data.subreddit}
             />
           ))}
-        </div>
+        </PostList>
       ) : (
         "" //this line item renders the '' with ? on line 40.  so if the length is 0, render ''
       )}
-      <h1>Subreddit Categories</h1>
-      <div className="category-list">
-        {categories.map((category) => (
-          <SubredditList
-            category={category.data.display_name_prefixed}
-            key={category.data.id}
-          />
-        ))}
-      </div>
-    </div>
+    </MainContainer>
   );
 };
+const MainContainer = styled(motion.div)`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 50px 50px;
+  grid-gap: 5px;
+`;
+
+const PostList = styled(motion.div)`
+  grid-column: 2 / span 2;
+`;
+
+const CategoryList = styled(motion.div)`
+  grid-column: 1;
+`;
+
+const CommentsList = styled(motion.div)`
+  background: black;
+  z-index: 5;
+  position: relative;
+`;
