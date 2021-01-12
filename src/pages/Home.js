@@ -62,6 +62,8 @@ export const Home = () => {
                 key={post.data.id}
                 id={post.data.id}
                 subreddit={post.data.subreddit}
+                author={post.data.author}
+                unixTime={post.data.created}
               />
             </div>
           ))}
@@ -79,6 +81,8 @@ export const Home = () => {
               key={post.data.id}
               id={post.data.id}
               subreddit={post.data.subreddit}
+              author={post.data.author}
+              unixTime={post.data.created}
             />
           ))}
         </PostList>
@@ -90,13 +94,14 @@ export const Home = () => {
 };
 const MainContainer = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 50px 50px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
   grid-gap: 5px;
 `;
 
 const PostList = styled(motion.div)`
-  grid-column: 2 / span 2;
+  grid-column: 2 / span 3;
+  cursor: pointer;
 `;
 
 const CategoryList = styled(motion.div)`
