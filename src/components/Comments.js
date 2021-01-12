@@ -15,12 +15,14 @@ const Comments = () => {
   return (
     <CommentBox>
       <Detail>
-        <h1 onClick={clearCommentsHandler}>Clear Comments!</h1>
-        <h1>Main Title: {mainPost.title}</h1>
+        <button onClick={clearCommentsHandler}>X</button>
+        <PostStyle>
+          <h3>{mainPost.title}</h3>
+        </PostStyle>
         {commentPosts.map((comment) => (
-          <div>
+          <CommentsStyle>
             <p>{comment.data.body}</p>
-          </div>
+          </CommentsStyle>
         ))}
       </Detail>
     </CommentBox>
@@ -28,6 +30,14 @@ const Comments = () => {
 };
 
 export default Comments;
+
+const PostStyle = styled(motion.div)`
+  display: flex;
+  padding: 0.5rem 0.5rem;
+  flex-wrap: wrap;
+  border-left: red 3px solid;
+  margin: 1rem 0;
+`;
 
 const CommentBox = styled(motion.div)`
   width: 100%;
@@ -65,4 +75,21 @@ const Detail = styled(motion.div)`
     background: white;
     color: black;
   }
+  button {
+    font-size: 1.5rem;
+    border: none;
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    background: red;
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+`;
+
+const CommentsStyle = styled(motion.div)`
+  padding: 1rem 1rem;
+  border-left: red 1px solid;
+  margin: 1rem 0;
 `;

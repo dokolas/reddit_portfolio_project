@@ -41,16 +41,6 @@ export const Home = () => {
       ) : (
         "" //this line item renders the '' with ? on line 40.  so if the length is 0, render ''
       )}
-      {/* {mainPost.map((main) => (
-        <CommentsList>
-          <p>Main Title: {main.data.title}</p>
-          {commentPosts.map((comment) => (
-            <div>
-              <Comments body={comment.data.body} />
-            </div>
-          ))}
-        </CommentsList>
-      ))} */}
       {chosenPosts.length ? (
         <PostList>
           {chosenPosts.map((post) => (

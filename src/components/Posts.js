@@ -34,8 +34,8 @@ const Posts = ({ title, ups, id, subreddit, thumb, author, unixTime }) => {
       </TopBar>
       <Break></Break>
       <TitleImg>
-        <h3 onClick={loadCommentPostsHandler}>{title}</h3>
         {imgSource}
+        <h3 onClick={loadCommentPostsHandler}>{title}</h3>
       </TitleImg>
     </PostStyle>
   );
@@ -56,6 +56,8 @@ const TopBar = styled(motion.div)`
   justify-content: space-between;
   flex-direction: row;
   flex-grow: 1;
+  font-size: 1rem;
+  color: gray;
 `;
 
 const TitleImg = styled(motion.div)`
@@ -63,9 +65,12 @@ const TitleImg = styled(motion.div)`
   flex-direction: row;
   flex-grow: 1;
   img {
-    float: right;
+    float: left;
     display: block;
     padding: 1rem 1rem;
+  }
+  h3 {
+    width: 100%;
   }
 `;
 
