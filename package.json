@@ -1,5 +1,6 @@
 {
   "name": "reddit_portfolio_project",
+  "homepage": "https://spiro.rocks/projects/reddit",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
