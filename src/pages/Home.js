@@ -9,9 +9,7 @@ import SpecificPosts from "../components/chosenPosts";
 import Comments from "../components/Comments";
 //styles and motion
 import styled from "styled-components";
-import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
-//react router
-import { useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -24,11 +22,12 @@ export const Home = () => {
   const { categories, initialposts } = useSelector((state) => state.subreddit);
   const { chosenPosts } = useSelector((state) => state.chosenPosts);
   const { commentPosts, mainPost } = useSelector((state) => state.comments);
+  const { searchedPosts } = useSelector((state) => state.searchedPosts);
 
   return (
     <MainContainer>
       <CategoryList>
-        <h1>Subreddit Categories</h1>
+        <h3>Popular Subreddits</h3>
         {categories.map((category) => (
           <SubredditList
             category={category.data.display_name_prefixed}
@@ -79,6 +78,25 @@ export const Home = () => {
       ) : (
         "" //this line item renders the '' with ? on line 40.  so if the length is 0, render ''
       )}
+
+      {searchedPosts.length ? (
+        <PostList>
+          {searchedPosts.map((post) => (
+            <Posts
+              title={post.data.title}
+              ups={post.data.ups}
+              thumb={post.data.thumbnail}
+              key={post.data.id}
+              id={post.data.id}
+              subreddit={post.data.subreddit}
+              author={post.data.author}
+              unixTime={post.data.created}
+            />
+          ))}
+        </PostList>
+      ) : (
+        "" //this line item renders the '' with ? on line 40.  so if the length is 0, render ''
+      )}
     </MainContainer>
   );
 };
@@ -91,11 +109,16 @@ const MainContainer = styled(motion.div)`
 
 const PostList = styled(motion.div)`
   grid-column: 2 / span 3;
-  cursor: pointer;
 `;
 
 const CategoryList = styled(motion.div)`
   grid-column: 1;
+  h3 {
+    margin-left: 0.5rem;
+    padding-left: 0.5rem;
+    border-left: 3px red solid;
+    margin-bottom: 1rem;
+  }
 `;
 
 const CommentsList = styled(motion.div)`

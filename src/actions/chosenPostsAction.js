@@ -1,5 +1,5 @@
 import axios from "axios";
-import { chosenPostsUrl, commentPostUrl } from "../api";
+import { chosenPostsUrl, commentPostUrl, searchPostUrl } from "../api";
 
 export const loadChosenPosts = (option) => async (dispatch) => {
   const chosenData = await axios.get(chosenPostsUrl(option));
@@ -20,3 +20,5 @@ export const commentChosenPosts = (category, id) => async (dispatch) => {
     },
   });
 };
+
+
