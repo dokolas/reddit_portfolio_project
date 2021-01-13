@@ -11,6 +11,11 @@ const chosenPostReducer = (state = initialState, action) => {
         ...state,
         chosenPosts: action.payload.chosenPosts, //COMES FROM ACTION
       };
+    case "CLEAR_CHOSEN_POSTS":
+      return {
+        ...state,
+        chosenPosts: [], //this clears it all
+      };
     default:
       return { ...state };
   }

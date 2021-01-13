@@ -20,11 +20,8 @@ const Nav = () => {
     e.preventDefault(); //prevents the page from reloading
     dispatch(searchPosts(textInput));
     dispatch({ type: "CLEAR_INITIAL_POSTS" }); //CLEARS INITIAL POSTS
+    dispatch({ type: "CLEAR_CHOSEN_POSTS" }); //CLEARS INITIAL POSTS
     setTextInput("");
-  };
-
-  const clearSearch = () => {
-    dispatch({ type: "CLEAR_SEARCHED" });
   };
 
   return (
@@ -41,12 +38,10 @@ const Nav = () => {
 };
 
 const StyledNav = styled(motion.nav)`
-  display: flex;
-  justify-content: space-around;
-  padding: 3rem 5rem;
+  padding: 2rem 5rem;
   text-align: center;
   input {
-    width: 55%;
+    width: 35%;
     font-size: 1.5rem;
     padding: 0.5rem;
     border: none;
