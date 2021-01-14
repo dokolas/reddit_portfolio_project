@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { searchPosts } from "../actions/searchPostsAction";
+import Button from "react-bootstrap/Button";
 
 //import search function from action
 
@@ -31,7 +32,9 @@ const Nav = () => {
       </Logo>
       <form className="search">
         <input onChange={inputHandler} value={textInput} type="text" />
-        <button onClick={submitSearch}>Search</button>
+        <button onClick={submitSearch} variant="warning">
+          Search
+        </button>
       </form>
     </StyledNav>
   );

@@ -14,6 +14,7 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 //react router
 import { BrowserRouter } from "react-router-dom";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
